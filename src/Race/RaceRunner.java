@@ -1,51 +1,47 @@
 package Race;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class RaceRunner {
 	
-	static Scanner scanner = new Scanner(System.in);
+	private static List<Horses> horses = new ArrayList<>();
 	
-	private static List<Horses> getHorses(String name) {
-		return List.of(
-			new Horses(name)
-		);
+	private static List<Horses> healthyHorses = new ArrayList<>();
+	
+	public static List<Horses> getHorses() {
+		return horses;
+	}
+
+	public static void setHorses(List<Horses> horses) {
+		RaceRunner.horses = horses;
+	}
+
+	public static List<Horses> getHealthyHorses() {
+		return healthyHorses;
+	}
+
+	public static void setHealthyHorses(List<Horses> healthyHorses) {
+		RaceRunner.healthyHorses = healthyHorses;
 	}
 	
-	private static List<Horses> healthyHorses;
-
+	
 	public static void main(String[] args) {
 		
-		Functions race = () -> {
-			System.out.println("Please enter the track distance (meters):");
+		_Functions race = () -> {
 			
-			Tracks.setDistance(scanner.nextInt());
+			_Functions.getTrackLength();
 			
-			System.out.printf("Track distance is set to %d meters", Tracks.getDistance()).println();
+			_Functions.assignNoOfHorses(getHorses());
 			
-			System.out.println("Please enter number of participating horses:");
+			_Functions.assignFinalRacers(getHorses());
 			
-			Integer numberOfHorses = scanner.nextInt();
+			_Functions.validatingRace(getHealthyHorses());
 			
-			for(int i = 0; i < numberOfHorses; i++) {
-				String name = "horse" + i;
-				
-				getHorses(name);
-				
-				Horses.getDetails();
-				
-				if(Horses.getHealth() == "Not well") {
-					System.out.println(Horses.getName() + " is not feeling well and will not be allowed to join the race");
-				} else {
-					System.out.println(Horses.getName() + " is ready to race!");
-				}
-				
-			}
 		};
 		
 		race.set();
-
+		
 	}
 
 }
