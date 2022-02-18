@@ -99,6 +99,10 @@ public interface _Functions {
 				
 				raceWinner.stream().forEach(e -> won(e));
 				
+				horses.stream().forEach(e -> {
+					System.out.printf("Total distance travelled of %s is %d meters", e.name, e.distanceTravelled).println();
+				});
+				
 				break;
 				
 			} else {
@@ -128,8 +132,6 @@ public interface _Functions {
 		System.out.printf("%s won!", horse.name).println();
 		
 		System.out.printf("%s: '%s'", horse.name, horse.warCry).println();
-		
-		System.out.printf("Total distance travelled is %d", horse.distanceTravelled);
 		
 	}
 

@@ -26,7 +26,6 @@ public class Horses {
 		
 	}
 
-
 	public String name;
 	
 	public String warCry;
