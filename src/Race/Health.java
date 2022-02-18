@@ -7,7 +7,10 @@ public enum Health {
 	Unwell;
 	
 	public static Health getRandomHealth() {
+		
 		Random r = new Random();
+		
 		return values()[r.nextInt(values().length)];
+		
 	}
 }

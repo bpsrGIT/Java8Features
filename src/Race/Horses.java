@@ -1,10 +1,35 @@
 package Race;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Random;
+
 public class Horses {
+
+	final static List<String> warCryList = new ArrayList<>() {{
+		add("Vroom");
+		add("Urrah");
+		add("Banzai");
+		add("Opps");
+		add("Yeah");
+		add(null);
+	}};
+	
+	public String getRandomWarcry() {
+
+		Random r = new Random();
+		
+		String randomWarCry = warCryList.get(r.nextInt(warCryList.size()));
+		
+		return randomWarCry;
+		
+	}
+
 
 	public String name;
 	
-	public Warcry warCry;
+	public String warCry;
 
 	public Health health;
 	
@@ -16,7 +41,8 @@ public class Horses {
 		this.name = "horse"+name;
 		this.health = Health.getRandomHealth();
 		this.distanceTravelled = 0;
-		this.warCry = Warcry.getRandomWarcry();
+		Optional<String> getWarCry = Optional.ofNullable(getRandomWarcry());
+		this.warCry = getWarCry.orElse("No war cry");
 		this.speed = 0;
 	}
 

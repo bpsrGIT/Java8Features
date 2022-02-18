@@ -41,9 +41,9 @@ public interface _Functions {
 		
 		List<Horses> tempData = new ArrayList<>();
 		
-		for(int i = 0; i<= num; i++) {
+		for(int i = 1; i<= num; i++) {
 			
-			tempData.add(i, new Horses(""+i));
+			tempData.add(new Horses(""+i));
 			
 		}
 		
