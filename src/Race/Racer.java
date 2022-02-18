@@ -33,5 +33,10 @@ public class Racer extends Horses{
 		
 		this.warCry = getWarCry.orElse("No war cry");
 	}
+	
+	public String toString() {
+		String details = "Name: " + name + ", Health: " + health + ", Distance Travelled: " + distanceTravelled + ".";
+		return details;
+	}
 
 }

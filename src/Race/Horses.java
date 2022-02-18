@@ -16,10 +16,5 @@ public class Horses {
 		this.distanceTravelled = distance;
 		this.speed = speed;
 	}
-
-	public String toString() {
-		String details = "Name: " + name + ", Health: " + health + ", Distance Travelled: " + distanceTravelled + ".";
-		return details;
-	}
 	
 }
